@@ -18,7 +18,7 @@ body {
 }
 
 .message-container {
-    background-color: white;
-    margin: 10px 180px;
+    margin: 5px 180px;
     padding: 5px 5px;
+    background-color: white;
 }

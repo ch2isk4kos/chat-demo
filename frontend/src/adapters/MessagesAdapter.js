@@ -10,6 +10,7 @@ class MessagesAdapter {
     postMessage(messageObj) {
 
         const message = {
+            id: messageObj.id,
             content: messageObj.content,
             creator: messageObj.creator
         }
@@ -23,6 +24,6 @@ class MessagesAdapter {
             body: JSON.stringify({message})
         })
         .then(resp => resp.json())
-        // .catch(error => console.log(error))
+        .catch(error => console.log(error))
     }
 }

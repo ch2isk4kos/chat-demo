@@ -23,9 +23,9 @@ class Messages {
 
         // new comment
         // this.newCommentContainer = document.getElementsByClassName('new-comment-container')
-        // this.newCommentForm = document.getElementById('new-comment-form')
-        // this.newCommentContent = document.getElementById('new-comment-content')
-        // this.newCommentCreator = document.getElementById('new-comment-creator')
+        this.newCommentForm = document.getElementById('new-comment-form')
+        this.newCommentContent = document.getElementById('new-comment-content')
+        this.newCommentCreator = document.getElementById('new-comment-creator')
 
         // new like
 
@@ -48,13 +48,8 @@ class Messages {
 
         switch(e.target.className) {
             case "new-comment-button":
-            // debugger
-            this.newCommentButtons = document.getElementsByClassName('new-comment-button')
+                this.newCommentContainer = document.getElementsByClassName('new-comment-container')
 
-            this.newCommentContainer = document.getElementsByClassName('new-comment-container')
-            this.newCommentForm = document.getElementById('new-comment-form')
-            this.newCommentContent = document.getElementById('new-comment-content')
-            this.newCommentCreator = document.getElementById('new-comment-creator')
 
                 console.log("e.target:", e.target)
                 console.log("e.target.dataset.id:", e.target.dataset.id)
@@ -65,18 +60,45 @@ class Messages {
                 console.log("messages container:", this.messagesContainer)
                 console.log("new comment container:", this.newCommentContainer)
 
-                // this.newCommentButtons.id = e.target.dataset.id
+                // Attempt 0:
+                // this.newCommentContainer.style.display = 'block';
 
-                // this.messages.forEach(function() {
-                //     this.newCommentContainer[`${e.target.dataset.id}`].style.display = "block"
-                // })
+                // Attempt 1:
+                // this.newCommentContainer[`${e.target}`].style.display = "block"
+                // this.newCommentContainer[`${e.target.dataset.id}`].style.display = "block"
 
-                // this.newCommentContainer[0].style.display = "block"
-
-
-                this.newCommentContainer[`${e.target.dataset.id}`].style.display = "block"
+                // Attempt 2:
+                // this.messageContainer[`${e.target}`].style.display = "block"
                 // this.messageContainer[`${e.target.dataset.id}`].style.display = "block"
 
+
+                // Attempt 3:
+                // this.messages.forEach(() => {
+                //     this.newCommentContainer[`${e.target.dataset.id}`].style.display = 'block';
+                // })
+
+                // Attempt 4:
+                // this.messages.forEach(() => {
+                //     if (e.target.style.display === 'none') {
+                //         e.target.style.display = 'block'
+                //     } else {
+                //         return;
+                //     }
+                // })
+
+                // Attempt 5:
+                // this.messages.forEach(() => {
+                //     if (this.newCommentContainer.style.display === 'none') {
+                //         this.newCommentContainer.style.display = 'block'
+                //     } else {
+                //         return;
+                //     }
+                // })
+
+                // Attempt 6:
+                // this.messages.forEach(() => {
+                //     this.messageContainer.style.display = 'block';
+                // })
             break
 
             default:
@@ -88,7 +110,7 @@ class Messages {
         e.preventDefault()
 
         const messageObj = {
-            // id: this.id,
+            id: this.id,
             content: this.newMessageContent.value,
             creator: this.newMessageCreator.value
         }
