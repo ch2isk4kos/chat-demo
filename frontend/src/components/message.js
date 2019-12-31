@@ -11,15 +11,16 @@ class Message {
         return `
         <div data-id=${this.id} class="message-container">
             <p><strong>@${this.creator}</strong>: ${this.content}</p>
+            <button type="button" id=${this.id} class="new-comment-button">Comment</button>
             <div data-id=${this.id} class="new-comment-container" style="display: none">
                 <form class="new-comment-form">
                     <textarea id="new-comment-content" rows="5" cols="46"></textarea><br>
                     <label for="creator">Created By:</label>
                     <input type="text" name="creator" id="new-comment-creator">
                     <input type="submit" value="Submit">
-                </form>
+                </form><br>
+                <button type="button" class="cancel-comment-button">Cancel</button>
             </div>
-            <button type="button" id=${this.id} class="new-comment-button">Comment</button>
         </div>
         `
     }
