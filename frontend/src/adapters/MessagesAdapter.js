@@ -10,7 +10,6 @@ class MessagesAdapter {
     postMessage(messageObj) {
 
         const message = {
-            id: messageObj.id,
             content: messageObj.content,
             creator: messageObj.creator
         }
