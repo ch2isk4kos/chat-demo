@@ -1,6 +1,7 @@
 class MessagesAdapter {
     constructor() {
         this.baseUrl = 'http://localhost:3000/api/v1/messages'
+        this.commentsUrl = 'http://localhost:3000/api/v1/comments'
     }
 
     getMessages() {
@@ -21,6 +22,30 @@ class MessagesAdapter {
                 "Accept": "application/json"
             },
             body: JSON.stringify({message})
+        })
+        .then(resp => resp.json())
+        .catch(error => console.log(error))
+    }
+
+    getComments() {
+        return fetch(this.commentsUrl).then(resp => resp.json())
+    }
+
+    postComment(commentObj) {
+
+        const comment = {
+            message_id: this.id,
+            content: commentObj.content,
+            creator: commentObj.creator
+        }
+
+        return fetch(this.commentsUrl, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({comment})
         })
         .then(resp => resp.json())
         .catch(error => console.log(error))
