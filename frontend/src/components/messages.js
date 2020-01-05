@@ -1,10 +1,8 @@
 class Messages {
     constructor() {
-        // debugger
         this.messages = []
         this.adapter = new MessagesAdapter()
         this.initBindings()
-        // this.initEventHandlers()
         this.fetchAndLoadMessages()
     }
 
@@ -40,10 +38,6 @@ class Messages {
         // console.log("commentsContainer:", this.commentsContainer)
         // console.log("messageContainer", this.messageContainer)
     }
-
-    // initEventHandlers() {
-    //     this.newMessageSubmitButton.addEventListener('submit', this.createMessage.bind(this));
-    // }
 
     renderCommentForm(e) {
         e.preventDefault();
@@ -148,6 +142,7 @@ class Messages {
 
                 for (let i=0; i < this.newCommentSubmit.length; i++) {
                     if (e.target === this.newCommentSubmit[i]) {
+
                         // console.log("messages[i]:", this.messages[i])
                         // console.log("this.newCommentSubmit[i]:", this.newCommentSubmit[i])
                         console.log("--------------------------")
@@ -160,7 +155,9 @@ class Messages {
                             creator: this.newCommentCreator[i].value
                         }
 
-                        this.messages[i].createComment(commentObject) // this is being called in message.js
+                        // this.messages[i].createComment(commentObject) // this is being called in message.js
+                        // this.newCommentSubmit[i].addEventListener('submit', this.messages[i].createComment(commentObject))
+                        this.newCommentForm[i].addEventListener('submit', this.messages[i].createComment(commentObject))
 
                         // Attempt 3:
                         // const target = this.newCommentSubmit[i]
@@ -172,6 +169,8 @@ class Messages {
 
                         // Attempt 1:
                         // this.messages[i].createComment(commentObject) // this is being called in message.js
+
+                        //---------------------------
 
                         this.resetCommentFormFields()
                         this.renderMessages()
@@ -201,41 +200,6 @@ class Messages {
             this.renderMessages()
         })
     }
-
-    // createComment(e) {
-    //     e.preventDefault()
-    //
-    //     // debugger
-    //     const commentObj = {
-    //         message_id: this.id,
-    //         content: this.newCommentContent.value,
-    //         creator: this.newCommentCreator.value
-    //     }
-    //
-    //     this.adapter.postComment(commentObj)
-    //     .then(comment => {
-    //         console.log('comment:', comment)
-    //         // this.comments.push(new Comment(comment))
-    //         // this.resetCommentFormFields()
-    //         // this.renderMessages()
-    //     })
-    //
-    //     // fetch(`http://localhost:3000/api/v1/comments`, {
-    //     //     method: 'POST',
-    //     //     headers: {
-    //     //         "Content-Type": "application/json",
-    //     //         "Accept": "application/json"
-    //     //     },
-    //     //     body: JSON.stringify({commentObj})
-    //     // })
-    //     // .then(resp => resp.json())
-    //     // .then(comment => {
-    //     //     console.log("L228:", comment)
-    //     //     this.resetCommentFormFields()
-    //     //     this.renderMessages()
-    //     // })
-    //     // .catch(error => console.log(error))
-    // }
 
     fetchAndLoadMessages() {
         this.adapter.getMessages()

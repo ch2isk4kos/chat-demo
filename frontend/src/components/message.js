@@ -7,23 +7,6 @@ class Message {
     }
 
     createComment(commentObject) {
-        // debugger
-
-        // console.log(this)
-
-        // const newCommentContainer = document.getElementsByClassName('new-comment-container')
-        // const newCommentForm = document.getElementById('new-comment-form')
-        // const newCommentContent = document.getElementById('new-comment-content')
-        // const newCommentCreator = document.getElementById('new-comment-creator')
-
-        // const newCommentContainer = document.getElementsByClassName('new-comment-container')
-        // const newCommentForm = document.getElementsByClassName('new-comment-form')
-        // const newCommentContent = document.getElementsByClassName('new-comment-content')
-        // const newCommentCreator = document.getElementsByClassName('new-comment-creator')
-        //
-        // console.log('this', this)
-        // console.log('newCommentContent:', newCommentContent)
-        // console.log('newCommentCreator:', newCommentCreator)
 
         const commentObj = {
             message_id: this.id,
@@ -48,7 +31,8 @@ class Message {
             console.log("comment.creator:", comment.creator)
             // this.comments.push(comment)
             this.comments.push(new Comment(comment))
-            this.renderMessage()
+            this.resetCommentFormFields()
+            this.renderComments()
         })
         .catch(error => console.log(error))
     }
@@ -80,6 +64,11 @@ class Message {
                 <p>${comment.content} <strong>@${comment.creator}</strong></p>
             </li>
         `).join('')
+    }
+
+    resetCommentFormFields() {
+        this.newCommentContent.value = '';
+        this.newCommentCreator.value = '';
     }
 
 }
