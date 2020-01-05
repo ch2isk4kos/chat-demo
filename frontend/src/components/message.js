@@ -33,19 +33,22 @@ class Message {
 
         console.log("commentObj:", commentObj)
 
-        return fetch('http://localhost:3000/api/v1/comments', {
-            method: 'POST',
+        return fetch("http://localhost:3000/api/v1/comments", {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
             body: JSON.stringify(commentObj)
         })
-        .then(resp => resp.json())
+        .then(resp => console.log(resp.json()))
         .then(comment => {
             console.log("comment:", comment)
-            this.comments.push(comment)
-            this.renderComments()
+            console.log("comment.content:", comment.content)
+            console.log("comment.creator:", comment.creator)
+            // this.comments.push(comment)
+            this.comments.push(new Comment(comment))
+            this.renderMessage()
         })
         .catch(error => console.log(error))
     }
