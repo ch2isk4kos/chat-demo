@@ -27,23 +27,23 @@ class MessagesAdapter {
         .catch(error => console.log(error))
     }
 
-    postComment(commentObj) {
-
-        const comment = {
-            message_id: this.id,
-            content: commentObj.content,
-            creator: commentObj.creator
-        }
-
-        return fetch(this.commentsUrl, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({comment})
-        })
-        .then(resp => resp.json())
-        // .catch(error => console.log(error))
-    }
+    // postComment(commentObj) {
+    //
+    //     const comment = {
+    //         message_id: this.id,
+    //         content: commentObj.content,
+    //         creator: commentObj.creator
+    //     }
+    //
+    //     return fetch(this.commentsUrl, {
+    //         method: 'POST',
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Accept": "application/json"
+    //         },
+    //         body: JSON.stringify({comment})
+    //     })
+    //     .then(resp => resp.json())
+    //     .catch(error => console.log(error))
+    // }
 }

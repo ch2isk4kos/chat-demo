@@ -31,10 +31,6 @@ class Messages {
         this.newCommentSubmit = document.getElementsByClassName('new-comment-submit')
         this.cancelCommentButtons = document.getElementsByClassName('cancel-comment-button')
 
-        console.log('initBinds:', this.newCommentContent)
-
-        // new like
-
         // event listeners
         this.newMessageForm.addEventListener('submit', this.createMessage.bind(this))
         this.messagesContainer.addEventListener('click', this.renderCommentForm.bind(this))
@@ -151,23 +147,34 @@ class Messages {
             case "new-comment-submit":
 
                 for (let i=0; i < this.newCommentSubmit.length; i++) {
-                    if (e.target.id === this.newCommentSubmit[i].id) {
-                        console.log("messages[i]:", this.messages[i])
-                        // console.log("this.newCommentContent:", this.newCommentContent)
-                        // console.log("this.newCommentContainer:", this.newCommentContainer)
+                    if (e.target === this.newCommentSubmit[i]) {
+                        // console.log("messages[i]:", this.messages[i])
+                        // console.log("this.newCommentSubmit[i]:", this.newCommentSubmit[i])
+                        console.log("--------------------------")
+                        console.log("this.newCommentContent[i]:", this.newCommentContent[i].value)
+                        console.log("this.newCommentCreator[i]:", this.newCommentCreator[i].value)
+
+                        // Attempt 4:
+                        const commentObject = {
+                            content: this.newCommentContent[i].value,
+                            creator: this.newCommentCreator[i].value
+                        }
+
+                        this.messages[i].createComment(commentObject) // this is being called in message.js
 
                         // Attempt 3:
                         // const target = this.newCommentSubmit[i]
                         // target.addEventListener('submit', this.messages[i].createComment())
+                        // target.addEventListener('submit', this.messages[i].createComment.bind(this))
 
                         // Attempt 2:
                         // this.newCommentSubmit[i].addEventListener('submit', this.messages[i].createComment())
 
                         // Attempt 1:
-                        this.messages[i].createComment() // this is being called in message.js
+                        // this.messages[i].createComment(commentObject) // this is being called in message.js
 
-                        // this.resetCommentFormFields()
-                        // this.renderMessages()
+                        this.resetCommentFormFields()
+                        this.renderMessages()
                     }
                 }
 
