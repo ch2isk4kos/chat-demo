@@ -156,21 +156,20 @@ class Messages {
                         // console.log("this.newCommentContent:", this.newCommentContent)
                         // console.log("this.newCommentContainer:", this.newCommentContainer)
 
-                        const target = this.newCommentSubmit[i]
-                        target.addEventListener('submit', this.messages[i].createComment())
+                        // Attempt 3:
+                        // const target = this.newCommentSubmit[i]
+                        // target.addEventListener('submit', this.messages[i].createComment())
 
+                        // Attempt 2:
                         // this.newCommentSubmit[i].addEventListener('submit', this.messages[i].createComment())
+
+                        // Attempt 1:
+                        this.messages[i].createComment() // this is being called in message.js
 
                         // this.resetCommentFormFields()
                         // this.renderMessages()
                     }
                 }
-
-                // for (let i=0; i < this.messages.length; i++) {
-                //     if (e.target.id === this.messages[i].id) {
-                //         this.messages[i].createComment()
-                //     }
-                // }
 
             break;
 
