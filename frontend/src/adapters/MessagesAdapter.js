@@ -27,10 +27,6 @@ class MessagesAdapter {
         .catch(error => console.log(error))
     }
 
-    getComments() {
-        return fetch(this.commentsUrl).then(resp => resp.json())
-    }
-
     postComment(commentObj) {
 
         const comment = {
@@ -48,6 +44,6 @@ class MessagesAdapter {
             body: JSON.stringify({comment})
         })
         .then(resp => resp.json())
-        .catch(error => console.log(error))
+        // .catch(error => console.log(error))
     }
 }

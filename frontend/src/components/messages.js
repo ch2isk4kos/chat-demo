@@ -10,7 +10,7 @@ class Messages {
 
     initBindings() {
         // messages
-        // this.messageContainer = document.getElementsByClassName('message-container')
+        this.messageContainer = document.getElementsByClassName('message-container')
         this.newCommentButtons = document.getElementsByClassName('new-comment-button')
 
         // new message
@@ -26,19 +26,23 @@ class Messages {
         // new comment
         this.newCommentContainer = document.getElementsByClassName('new-comment-container')
         this.newCommentForm = document.getElementsByClassName('new-comment-form')
-        this.newCommentContent = document.getElementById('new-comment-content')
-        this.newCommentCreator = document.getElementById('new-comment-creator')
+        this.newCommentContent = document.getElementsByClassName('new-comment-content')
+        this.newCommentCreator = document.getElementsByClassName('new-comment-creator')
+        this.newCommentSubmit = document.getElementsByClassName('new-comment-submit')
         this.cancelCommentButtons = document.getElementsByClassName('cancel-comment-button')
+
+        console.log('initBinds:', this.newCommentContent)
 
         // new like
 
         // event listeners
         this.newMessageForm.addEventListener('submit', this.createMessage.bind(this))
-        // this.newCommentContainer.addEventListener('submit', this.createComment.bind(this))
         this.messagesContainer.addEventListener('click', this.renderCommentForm.bind(this))
 
-        console.log("newCommentContainer:", this.newCommentContainer)
-        console.log("commentsContainer:", this.commentsContainer)
+        // console.log("newCommentContainer:", this.newCommentContainer)
+        // console.log("newCommentSubmit:", this.newCommentSubmit)
+        // console.log("commentsContainer:", this.commentsContainer)
+        // console.log("messageContainer", this.messageContainer)
     }
 
     // initEventHandlers() {
@@ -46,7 +50,7 @@ class Messages {
     // }
 
     renderCommentForm(e) {
-        // e.preventDefault();
+        e.preventDefault();
 
         switch(e.target.className) {
             case "new-comment-button":
@@ -138,14 +142,36 @@ class Messages {
                 for (let i=0; i < this.cancelCommentButtons.length; i++) {
                     // console.log([i]);
                     if (e.target.id === this.cancelCommentButtons[i].id) {
+                        this.resetCommentFormFields()
                         this.newCommentContainer[i].style.display = 'none';
                     }
                 }
             break;
 
             case "new-comment-submit":
-                this.createComment(e)
-                this.fetchAndLoadComments()
+
+                for (let i=0; i < this.newCommentSubmit.length; i++) {
+                    if (e.target.id === this.newCommentSubmit[i].id) {
+                        console.log("messages[i]:", this.messages[i])
+                        // console.log("this.newCommentContent:", this.newCommentContent)
+                        // console.log("this.newCommentContainer:", this.newCommentContainer)
+
+                        const target = this.newCommentSubmit[i]
+                        target.addEventListener('submit', this.messages[i].createComment())
+
+                        // this.newCommentSubmit[i].addEventListener('submit', this.messages[i].createComment())
+
+                        // this.resetCommentFormFields()
+                        // this.renderMessages()
+                    }
+                }
+
+                // for (let i=0; i < this.messages.length; i++) {
+                //     if (e.target.id === this.messages[i].id) {
+                //         this.messages[i].createComment()
+                //     }
+                // }
+
             break;
 
             default:
@@ -180,26 +206,29 @@ class Messages {
     //         creator: this.newCommentCreator.value
     //     }
     //
-    //     // this.adapter.postComment(commentObj)
-    //     // .then(comment => {
-    //     //     this.comments.push(new Comment(comment))
-    //     //     this.resetCommentFormFields()
-    //     //     this.renderComments()
-    //     // })
-    //
-    //     return fetch(`http://localhost:3000/api/v1/comments`, {
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Accept": "application/json"
-    //         },
-    //         body: JSON.stringify({commentObj})
-    //     })
-    //     .then(resp => resp.json())
+    //     this.adapter.postComment(commentObj)
     //     .then(comment => {
-    //         console.log("L228:", comment)
+    //         console.log('comment:', comment)
+    //         // this.comments.push(new Comment(comment))
+    //         // this.resetCommentFormFields()
+    //         // this.renderMessages()
     //     })
-    //     .catch(error => console.log(error))
+    //
+    //     // fetch(`http://localhost:3000/api/v1/comments`, {
+    //     //     method: 'POST',
+    //     //     headers: {
+    //     //         "Content-Type": "application/json",
+    //     //         "Accept": "application/json"
+    //     //     },
+    //     //     body: JSON.stringify({commentObj})
+    //     // })
+    //     // .then(resp => resp.json())
+    //     // .then(comment => {
+    //     //     console.log("L228:", comment)
+    //     //     this.resetCommentFormFields()
+    //     //     this.renderMessages()
+    //     // })
+    //     // .catch(error => console.log(error))
     // }
 
     fetchAndLoadMessages() {
