@@ -60,49 +60,12 @@ class Message {
             // console.log("comment.creator:", comment.creator)
 
             this.comments.push(new Comment({comment}))
-            // this.renderComments()
-            // const cmt = document.getElementById(`comments-container-${this.id}`)
-            // console.log("cmt:", cmt)
-
-            // document.getElementById(`comments-container-${this.id}`).append(`
-            //     <li class="comment" style="list-style-type: none">
-            //         <p>${comment.content} <strong>@${comment.creator}</strong></p>
-            //     </li>
-            // `)
 
             document.getElementById(`comments-container-${this.id}`).innerHTML += `
                 <li class="comment" style="list-style-type: none">
                     <p>${comment.content} <strong>@${comment.creator}</strong></p>
                 </li>
             `
-
-            // cmt.forEach((container) => {
-            //     if (this.id) {
-            //         container.append(`
-            //             <li class="comment" style="list-style-type: none">
-            //                 <p>${comment.content} <strong>@${comment.creator}</strong></p>
-            //             </li>
-            //         `)
-            //     }
-            // })
-            // cmt.innerHTML = `
-            //     <li class="comment" style="list-style-type: none">
-            //         <p>${comment.content} <strong>@${comment.creator}</strong></p>
-            //     </li>
-            // `
-
-            // cmt.append(`
-            //     <p>${comment.content} <strong>@${comment.creator}</strong></p>
-            // `)
-
-            // cmt.append('hey')
-
-            // this.comments.push(new Comment(comment))
-            // this.renderComments()
-
-            // this.comments.push(comment)
-            // this.renderComments()
-
         })
         .catch(error => console.log(error))
     }

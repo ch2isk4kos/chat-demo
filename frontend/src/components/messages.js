@@ -155,8 +155,6 @@ class Messages {
                             creator: this.newCommentCreator[i].value
                         }
 
-                        // this.messages[i].createComment(commentObject) // this is being called in message.js
-                        // this.newCommentSubmit[i].addEventListener('submit', this.messages[i].createComment(commentObject))
                         this.newCommentForm[i].addEventListener('submit', this.messages[i].createComment(commentObject))
 
                         // Attempt 3:
