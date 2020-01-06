@@ -142,7 +142,7 @@ class Messages {
 
                 for (let i=0; i < this.newCommentSubmit.length; i++) {
                     if (e.target === this.newCommentSubmit[i]) {
-
+                        // console.log("this", this)
                         // console.log("messages[i]:", this.messages[i])
                         // console.log("this.newCommentSubmit[i]:", this.newCommentSubmit[i])
                         console.log("--------------------------")
@@ -172,8 +172,9 @@ class Messages {
 
                         //---------------------------
 
-                        // this.resetCommentFormFields()
+                        this.resetCommentFormFields()
                         this.renderMessages()
+
                     }
                 }
 

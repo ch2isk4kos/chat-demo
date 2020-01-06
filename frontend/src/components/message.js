@@ -53,15 +53,20 @@ class Message {
             },
             body: JSON.stringify(commentObj)
         })
-        // .then(res => console.log("res.json():", res.json()))
         .then(response => response.json())
         .then(comment => {
             console.log("comment:", comment)
             // console.log("comment.content:", comment.content)
             // console.log("comment.creator:", comment.creator)
-            this.comments.push(comment)
-            // this.comments.push(new Comment(comment))
 
+            this.comments.push(new Comment({comment}))
+            this.renderComments()
+
+            // this.comments.push(new Comment(comment))
+            // this.renderComments()
+
+            // this.comments.push(comment)
+            // this.renderComments()
 
         })
         .catch(error => console.log(error))
