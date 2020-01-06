@@ -1,19 +1,19 @@
 class Api::V1::MessagesController < ApplicationController
 
-    before_action :find_message, only: [:show, :destroy]
+    before_action :find_message, only: [:show]
 
     def index
         @messages = Message.all
-        render json: @messages
+        render json: @messages, status: 200
     end
 
     def show
-        render json: @message
+        render json: @message, status: 200
     end
 
     def create
         @message = Message.create(message_params)
-        render json: @message
+        render json: @message, status: 200
     end
 
     private
@@ -23,7 +23,7 @@ class Api::V1::MessagesController < ApplicationController
     end
 
     def message_params
-        params.require(:message).permit(:content, :creator, comments: [:content, :creator, :message_id])
+        params.require(:message).permit(:content, :creator, comments: [:id, :content, :creator, :message_id])
     end
 
 end

@@ -6,37 +6,6 @@ class Message {
         this.comments = messageObj.comments
     }
 
-    createComment(commentObject) {
-
-        const commentObj = {
-            message_id: this.id,
-            content: commentObject.content,
-            creator: commentObject.creator
-        }
-
-        console.log("commentObj:", commentObj)
-
-        return fetch("http://localhost:3000/api/v1/comments", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify(commentObj)
-        })
-        .then(resp => console.log(resp.json()))
-        .then(comment => {
-            console.log("comment:", comment)
-            console.log("comment.content:", comment.content)
-            console.log("comment.creator:", comment.creator)
-            // this.comments.push(comment)
-            this.comments.push(new Comment(comment))
-            this.resetCommentFormFields()
-            this.renderComments()
-        })
-        .catch(error => console.log(error))
-    }
-
     renderMessage() {
         return `
         <div data-id=${this.id} class="message-container">
@@ -66,9 +35,36 @@ class Message {
         `).join('')
     }
 
-    resetCommentFormFields() {
-        this.newCommentContent.value = '';
-        this.newCommentCreator.value = '';
+    createComment(commentObject) {
+
+        const commentObj = {
+            message_id: this.id,
+            content: commentObject.content,
+            creator: commentObject.creator
+        }
+
+        console.log("commentObj:", commentObj)
+
+        return fetch('http://localhost:3000/api/v1/comments', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(commentObj)
+        })
+        // .then(res => console.log("res.json():", res.json()))
+        .then(response => response.json())
+        .then(comment => {
+            console.log("comment:", comment)
+            // console.log("comment.content:", comment.content)
+            // console.log("comment.creator:", comment.creator)
+            this.comments.push(comment)
+            // this.comments.push(new Comment(comment))
+
+
+        })
+        .catch(error => console.log(error))
     }
 
 }

@@ -146,8 +146,8 @@ class Messages {
                         // console.log("messages[i]:", this.messages[i])
                         // console.log("this.newCommentSubmit[i]:", this.newCommentSubmit[i])
                         console.log("--------------------------")
-                        console.log("this.newCommentContent[i]:", this.newCommentContent[i].value)
-                        console.log("this.newCommentCreator[i]:", this.newCommentCreator[i].value)
+                        // console.log("this.newCommentContent[i]:", this.newCommentContent[i].value)
+                        // console.log("this.newCommentCreator[i]:", this.newCommentCreator[i].value)
 
                         // Attempt 4:
                         const commentObject = {
@@ -172,7 +172,7 @@ class Messages {
 
                         //---------------------------
 
-                        this.resetCommentFormFields()
+                        // this.resetCommentFormFields()
                         this.renderMessages()
                     }
                 }
