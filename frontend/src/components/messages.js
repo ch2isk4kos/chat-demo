@@ -17,6 +17,7 @@ class Messages {
         this.newMessageContent = document.getElementById('new-message-content')
         this.newMessageCreator = document.getElementById('new-message-creator')
         this.newMessageForm = document.getElementById('new-message-form')
+        this.deleteMessageButton = document.getElementsByClassName('delete-message-button')
 
         // comments
         this.commentsContainer = document.getElementsByClassName('comments-container')
@@ -178,6 +179,10 @@ class Messages {
 
             break;
 
+            case "delete-message-button":
+
+            break;
+
             default:
             return
         }
@@ -198,6 +203,10 @@ class Messages {
             this.resetMessageFormFields()
             this.renderMessages()
         })
+    }
+
+    deleteMessage(id) {
+        this.adapter.destroyMessage(id)
     }
 
     fetchAndLoadMessages() {

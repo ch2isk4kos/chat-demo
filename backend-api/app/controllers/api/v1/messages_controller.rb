@@ -1,6 +1,6 @@
 class Api::V1::MessagesController < ApplicationController
 
-    before_action :find_message, only: [:show]
+    before_action :find_message, only: [:show, :destroy]
 
     def index
         @messages = Message.all
@@ -14,6 +14,11 @@ class Api::V1::MessagesController < ApplicationController
     def create
         @message = Message.create(message_params)
         render json: @message, status: 200
+    end
+
+    def destroy
+        @message.destroy
+        render json: {messageId: @message.id}
     end
 
     private

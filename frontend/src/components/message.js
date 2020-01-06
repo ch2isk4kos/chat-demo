@@ -17,9 +17,10 @@ class Message {
                     <label for="creator">Comment By:</label>
                     <input type="text" name="comment-creator" class="new-comment-creator">
                     <input type="submit" value="Submit" id=${this.id} class="new-comment-submit">
+                    <button type="button" id=${this.id} class="cancel-comment-button">Cancel</button>
                 </form><br>
-                <button type="button" id=${this.id} class="cancel-comment-button">Cancel</button>
             </div>
+            <button type="button" id=${this.id} class="delete-message-button">Delete</buttton>
         </div>
         <ul id="comments-container-${this.id}">
             ${this.renderComments()}

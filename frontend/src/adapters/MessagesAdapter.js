@@ -27,6 +27,12 @@ class MessagesAdapter {
         .catch(error => console.log(error))
     }
 
+    destroyMessage(id) {
+        return fetch(`${this.baseUrl}/${id}`, {
+            method: 'DELETE'
+        })
+    }
+
     // postComment(commentObj) {
     //
     //     const comment = {
