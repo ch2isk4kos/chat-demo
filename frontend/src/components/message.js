@@ -71,4 +71,16 @@ class Message {
         .catch(error => console.log(error))
     }
 
+    // deleteMessage(id) {
+    //     console.log("deleteMessage(id)", id)
+    //     return fetch('http://localhost:3000/api/v1/messages/' + id, {
+    //         method: 'DELETE'
+    //     })
+    // }
+
 }
+
+// <button type="button" class="delete-message-${this.id}-button" onclick=${this.deleteMessage(this.id)}>Delete</buttton>
+// onclick=${this.deleteMessage(this.id)}
+
+// class="delete-message-${this.id}-button"
