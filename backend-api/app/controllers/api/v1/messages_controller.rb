@@ -18,7 +18,7 @@ class Api::V1::MessagesController < ApplicationController
 
     def destroy
         @message.destroy
-        # render json: {messageId: @message.id}
+        render json: {messageId: @message.id}
     end
 
     private
