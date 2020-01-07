@@ -4,6 +4,7 @@ class Message {
         this.content = messageObj.content
         this.creator = messageObj.creator
         this.comments = messageObj.comments
+        // this.deleteButtonEventListener()
     }
 
     renderMessage() {
@@ -71,12 +72,19 @@ class Message {
         .catch(error => console.log(error))
     }
 
-    // deleteMessage(id) {
-    //     console.log("deleteMessage(id)", id)
-    //     return fetch('http://localhost:3000/api/v1/messages/' + id, {
-    //         method: 'DELETE'
-    //     })
+    // deleteButtonEventListener() {
+    //     const deleteBtns = document.getElementsByClassName('delete-message-buttton')
+    //     for (let btn of deleteBtns) {
+    //         btn.addEventListener('click', this.destroyMessage())
+    //     }
     // }
+    //
+    destroyMessage(id) {
+        console.log("deleteMessage(id)", id)
+        return fetch('http://localhost:3000/api/v1/messages/' + id, {
+            method: 'DELETE'
+        })
+    }
 
 }
 

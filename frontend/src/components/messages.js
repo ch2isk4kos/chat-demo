@@ -7,9 +7,6 @@ class Messages {
     }
 
     initBindings() {
-        // messages
-        this.messageContainer = document.getElementsByClassName('message-container')
-        this.newCommentButtons = document.getElementsByClassName('new-comment-button')
 
         // new message
         this.messagesContainer = document.getElementById('messages-container')
@@ -17,6 +14,10 @@ class Messages {
         this.newMessageContent = document.getElementById('new-message-content')
         this.newMessageCreator = document.getElementById('new-message-creator')
         this.newMessageForm = document.getElementById('new-message-form')
+
+        // messages
+        this.messageContainer = document.getElementsByClassName('message-container')
+        this.newCommentButtons = document.getElementsByClassName('new-comment-button')
 
         // comments
         this.commentsContainer = document.getElementsByClassName('comments-container')
@@ -37,11 +38,29 @@ class Messages {
         this.messagesContainer.addEventListener('click', this.renderCommentForm.bind(this))
         this.messagesContainer.addEventListener('click', this.deleteMessage.bind(this))
 
+
+        // this.messagesContainer.addEventListener('click', this.deleteMessage.bind(this))
+        // for (let button of this.deleteMessageButton) {
+        //     button.addEventListener('click', this.deleteMessage.bind(this))
+        // }
+
+        // for (let btn of this.deleteMessageButton) {
+        //     console.log("this inside of initBinding(for/of loop):", this)
+        //     btn.addEventListener('click', this.deleteMessage.bind(this))
+        // }
+
+        // for (let i=0; i < this.deleteMessageButton.length; i++) {
+        //     this.deleteMessageButton[i].addEventListener('click', this.deleteMessage.bind(this))
+        // }
+
+        // this.deleteMessageButton.forEach((btn) => btn.addEventListener('click', this.deleteMessage.bind(this)))
+        // this.messageContainer.addEventListener('click', this.deleteMessage.bind(this))
+
         // console.log("newCommentContainer:", this.newCommentContainer)
         // console.log("newCommentSubmit:", this.newCommentSubmit)
         // console.log("commentsContainer:", this.commentsContainer)
-        // console.log("messageContainer", this.messageContainer)
-        // console.log("deleteMessageButton:", this.deleteMessageButton)
+        console.log("messageContainer", this.messageContainer)
+        console.log("deleteMessageButton:", this.deleteMessageButton)
         // console.log("newMessageForm:", this.newMessageForm)
     }
 
@@ -214,27 +233,55 @@ class Messages {
         // console.log("this.deleteMessageButton:", this.deleteMessageButton)
         // console.log("this.messageContainer:", this.messagesContainer)
 
-        // Attempt 5:
-        switch(e.target.className) {
-            case "delete-message-button":
-                for (let i=0; i < this.deleteMessageButton.length; i++) {
-                    if (e.target.id === this.deleteMessageButton[i].id) {
-                        console.log("this.deleteMessageButton[i]:", this.deleteMessageButton[i])
-                        this.adapter.destroyMessage(e.target.id)
-                    }
-                }
-            break;
+        // Attempt 6:
+        // for (let i=0; i < this.deleteMessageButton.length; i++) {
+        //     console.log("this.messages[i]:", this.messages[i])
+        //     if (e.target.id === this.deleteMessageButton[i].id) {
+        //         this.messages[i].destroyMessage(e.target.id)
+        //         this.messagesContainer.children[i].remove()
+        //     }
+        // }
 
-            default:
-            return
+        // Attempt 5:
+        for (let i=0; i < this.deleteMessageButton.length; i++) {
+            console.log("this.messages[i]:", this.messages[i])
+            if (e.target.id === this.deleteMessageButton[i].id) {
+                // this.messages[i].splice()
+                console.log("this.messages[i]:", this.messages[i])
+                this.messagesContainer.children[i].remove()
+                this.adapter.destroyMessage(e.target.id)
+            }
         }
 
-        // Attempt 4:
         // for (let i=0; i < this.deleteMessageButton.length; i++) {
+        //     console.log("this.messages[i]:", this.messages[i])
         //     if (e.target.id === this.deleteMessageButton[i].id) {
-        //         console.log(this.deleteMessageButton[i])
+        //         // this.messages[i].splice()
+        //         console.log("this.messages[i]:", this.messages[i])
         //         this.adapter.destroyMessage(e.target.id)
+        //         .then(() => {
+        //             // document.getElementsByClassName('messages-container').parentNode.removeChild(this.messages[i])
+        //             this.messagesContainer.children[i].remove()
+        //         })
         //     }
+        // }
+
+        // Attempt 4:
+        // switch(e.target.className) {
+        //     case "delete-message-button":
+        //         for (let i=0; i < this.deleteMessageButton.length; i++) {
+        //             if (e.target.id === this.deleteMessageButton[i].id) {
+        //                 console.log("this.deleteMessageButton[i]:", this.deleteMessageButton[i])
+        //                 console.log("messagesContainer[i]:", this.messagesContainer[i])
+        //                 this.messagesContainer[i].remove()
+        //                 this.adapter.destroyMessage(e.target.id)
+        //
+        //             }
+        //         }
+        //     break;
+        //
+        //     default:
+        //     return
         // }
 
         // Attempt 3:
