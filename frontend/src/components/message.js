@@ -21,11 +21,15 @@ class Message {
                     <button type="button" id=${this.id} class="cancel-comment-button">Cancel</button>
                 </form><br>
             </div>
-            <button type="button" id=${this.id} class="delete-message-button">Delete</buttton>
+            <div>
+                <button type="button" id=${this.id} class="delete-message-button">Delete</buttton>
+            </div>
+            <div>
+                <ul id="comments-container-${this.id}">
+                    ${this.renderComments()}
+                </ul>
+            </div>
         </div>
-        <ul id="comments-container-${this.id}">
-            ${this.renderComments()}
-        </ul>
         `
     }
 

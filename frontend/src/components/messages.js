@@ -205,7 +205,7 @@ class Messages {
             for (let i=0; i < this.deleteMessageButton.length; i++) {
                 console.log("this.messages[i]:", this.messages[i])
                 if (e.target === this.deleteMessageButton[i]) {
-                    // this.messages[i].splice()
+
                     console.log("this.messages[i]:", this.messages[i])
                     console.log("this.deleteMessageButton[i]:", this.deleteMessageButton[i])
                     console.log("this.deleteMessageButton[i].id:", this.deleteMessageButton[i].id)
