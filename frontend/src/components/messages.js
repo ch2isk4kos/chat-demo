@@ -154,7 +154,6 @@ class Messages {
             break;
 
             case "cancel-comment-button":
-            break;
             for (let i=0; i < this.cancelCommentButtons.length; i++) {
                 // console.log([i]);
                 if (e.target.id === this.cancelCommentButtons[i].id) {
@@ -162,6 +161,7 @@ class Messages {
                     this.newCommentContainer[i].style.display = 'none';
                 }
             }
+            break;
 
             case "new-comment-submit":
             for (let i=0; i < this.newCommentSubmit.length; i++) {
