@@ -180,6 +180,7 @@ class Messages {
                     }
 
                     this.newCommentForm[i].addEventListener('submit', this.messages[i].createComment(commentObject))
+                    this.messages[i].renderComments()
 
                     // Attempt 3:
                     // const target = this.newCommentSubmit[i]
@@ -193,7 +194,6 @@ class Messages {
                     // this.messages[i].createComment(commentObject) // this is being called in message.js
 
                     //---------------------------
-
                     this.resetCommentFormFields()
                     this.renderMessages()
 
@@ -209,8 +209,8 @@ class Messages {
                     console.log("this.messages[i]:", this.messages[i])
                     console.log("this.deleteMessageButton[i]:", this.deleteMessageButton[i])
                     console.log("this.deleteMessageButton[i].id:", this.deleteMessageButton[i].id)
-                    this.messageContainer[i].remove()
                     this.adapter.destroyMessage(e.target.id)
+                    this.messageContainer[i].remove()
                 }
             }
             break;

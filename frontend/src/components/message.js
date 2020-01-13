@@ -33,14 +33,6 @@ class Message {
         `
     }
 
-    renderComments() {
-        return this.comments.map(comment => `
-            <li class="comment" style="list-style-type: none">
-                <p>${comment.content} <strong>@${comment.creator}</strong></p>
-            </li>
-        `).join('')
-    }
-
     createComment(commentObject) {
 
         const commentObj = {
@@ -65,7 +57,7 @@ class Message {
             // console.log("comment.content:", comment.content)
             // console.log("comment.creator:", comment.creator)
 
-            this.comments.push(new Comment({comment}))
+            this.comments.push(comment)
 
             document.getElementById(`comments-container-${this.id}`).innerHTML += `
                 <li class="comment" style="list-style-type: none">
@@ -83,11 +75,19 @@ class Message {
     //     }
     // }
     //
-    destroyMessage(id) {
-        console.log("deleteMessage(id)", id)
-        return fetch('http://localhost:3000/api/v1/messages/' + id, {
-            method: 'DELETE'
-        })
+    // destroyMessage(id) {
+    //     console.log("deleteMessage(id)", id)
+    //     return fetch('http://localhost:3000/api/v1/messages/' + id, {
+    //         method: 'DELETE'
+    //     })
+    // }
+
+    renderComments() {
+        return this.comments.map(comment => `
+            <li class="comment" style="list-style-type: none">
+                <p>${comment.content} <strong>@${comment.creator}</strong></p>
+            </li>
+        `).join('')
     }
 
 }
