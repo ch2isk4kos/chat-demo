@@ -24,7 +24,7 @@ class Api::V1::MessagesController < ApplicationController
     private
 
     def find_message
-        @message = Message.find(params[:id])
+        @message = Message.find_by(params[:id])
     end
 
     def message_params

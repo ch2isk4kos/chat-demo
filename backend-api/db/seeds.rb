@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Message.delete_all
-Comment.delete_all
+# Comment.delete_all
 
 Message.create([
     {content: "This is a message from the console", creator: "User1"},

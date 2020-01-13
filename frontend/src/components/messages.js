@@ -165,7 +165,7 @@ class Messages {
 
             case "new-comment-submit":
             for (let i=0; i < this.newCommentSubmit.length; i++) {
-                if (e.target === this.newCommentSubmit[i]) {
+                if (e.target.id === this.newCommentSubmit[i].id) {
                     // console.log("this", this)
                     // console.log("messages[i]:", this.messages[i])
                     // console.log("this.newCommentSubmit[i]:", this.newCommentSubmit[i])
@@ -180,7 +180,7 @@ class Messages {
                     }
 
                     this.newCommentForm[i].addEventListener('submit', this.messages[i].createComment(commentObject))
-                    this.messages[i].renderComments()
+                    // this.messages[i].renderComments()
 
                     // Attempt 3:
                     // const target = this.newCommentSubmit[i]
@@ -214,7 +214,8 @@ class Messages {
 
                     this.deleteMessageButton[i].addEventListener('click', this.messages[i].destroyMessage(e.target.id))
                     this.messageContainer[i].remove()
-                    delete this.messages[i]
+                    this.messages.splice(this.messages.indexOf(`${e.target.id}`, 1))
+                    // delete this.message[i]
                 }
             }
             break;
