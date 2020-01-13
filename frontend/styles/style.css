@@ -12,9 +12,18 @@ body {
     margin: auto;
     margin-bottom: 50px;
     margin-top: 50px;
-    padding-bottom:16px;
+    padding-bottom: 16px;
     text-align:center;
     background-color: lightgrey;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
 }
 
 .message-container {
