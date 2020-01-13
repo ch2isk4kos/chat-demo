@@ -75,12 +75,12 @@ class Message {
     //     }
     // }
     //
-    // destroyMessage(id) {
-    //     console.log("deleteMessage(id)", id)
-    //     return fetch('http://localhost:3000/api/v1/messages/' + id, {
-    //         method: 'DELETE'
-    //     })
-    // }
+    destroyMessage(id) {
+        console.log("deleteMessage(id)", id)
+        return fetch('http://localhost:3000/api/v1/messages/' + id, {
+            method: 'DELETE'
+        })
+    }
 
     renderComments() {
         return this.comments.map(comment => `

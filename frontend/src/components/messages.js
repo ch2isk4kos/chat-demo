@@ -204,13 +204,17 @@ class Messages {
             case "delete-message-button":
             for (let i=0; i < this.deleteMessageButton.length; i++) {
                 console.log("this.messages[i]:", this.messages[i])
-                if (e.target === this.deleteMessageButton[i]) {
+                if (e.target.id === this.deleteMessageButton[i].id) {
 
                     console.log("this.messages[i]:", this.messages[i])
                     console.log("this.deleteMessageButton[i]:", this.deleteMessageButton[i])
                     console.log("this.deleteMessageButton[i].id:", this.deleteMessageButton[i].id)
-                    this.adapter.destroyMessage(e.target.id)
+                    // this.adapter.destroyMessage(e.target.id)
+                    // this.adapter.destroyMessage(this.messages[i].id)
+
+                    this.deleteMessageButton[i].addEventListener('click', this.messages[i].destroyMessage(e.target.id))
                     this.messageContainer[i].remove()
+                    delete this.messages[i]
                 }
             }
             break;
