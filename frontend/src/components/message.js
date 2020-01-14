@@ -61,7 +61,7 @@ class Message {
 
             document.getElementById(`comments-container-${this.id}`).innerHTML += `
                 <li class="comment" style="list-style-type: none">
-                    <p>${comment.content} <strong>@${comment.creator}</strong></p>
+                    <p><strong>@${comment.creator}</strong>: ${comment.content} </p>
                 </li>
             `
         })
@@ -85,7 +85,7 @@ class Message {
     renderComments() {
         return this.comments.map(comment => `
             <li class="comment" style="list-style-type: none">
-                <p>${comment.content} <strong>@${comment.creator}</strong></p>
+                <p><strong>@${comment.creator}</strong>: ${comment.content} </p>
             </li>
         `).join('')
     }
