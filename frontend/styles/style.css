@@ -29,13 +29,15 @@ a {
 
 button {
     outline: none;
-    border-radius: 25px;
+    margin: 5px 5px;
+    padding: 5px 5px;
+    border-radius: 10px;
     background-color: blue;
     color: white;
 }
 
 button.delete-message-button {
-    display: flex;
+    /* display: flex; */
     background-color: red;
 
 }
@@ -48,21 +50,30 @@ input[type=submit] {
 }
 
 /* new message */
-
 #new-message-content {
-    /* outline: none; */
     width: 500px;
-    /* border-radius: 20px; */
     padding: 12px 20px;
     margin: 8px 0;
 }
 
+/* messages */
 .message-container {
-    width: 500px;
-    margin: 10px 200px;
-    padding: 10px 25px;
-    border-radius: 25px;
+    width: 540px;
+    /* margin: 20px 200px;
+    padding: 5px 20px;
+    */
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    padding-bottom: 16px;
+    text-align: center;
+    /* border-radius: 25px; */
     background-color: white;
+}
+
+.message {
+    padding: 20px 15px;
+    margin: 10px 10px;
 }
 
 /* comments */
@@ -80,9 +91,13 @@ input[type=submit] {
     margin: 8px 0;
 }
 
-#comment {
-
-}
+/* #comment {
+    width: 500px;
+    margin: 10px 200px;
+    padding: 10px 25px;
+    border-radius: 25px;
+    background-color: white;
+} */
 
 /* footer */
 

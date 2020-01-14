@@ -10,7 +10,7 @@ class Message {
     renderMessage() {
         return `
         <div data-id=${this.id} class="message-container">
-            <p><strong>@${this.creator}</strong>: ${this.content}</p>
+            <p class="message"><strong>@${this.creator}</strong>: ${this.content}</p>
             <button type="button" id=${this.id} class="new-comment-button">Comment</button>
             <div data-id=${this.id} class="new-comment-container" style="display: none"><br>
                 <form class="new-comment-form">
