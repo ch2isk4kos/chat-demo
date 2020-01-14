@@ -31,7 +31,7 @@ button {
     outline: none;
     margin: 5px 5px;
     padding: 5px 5px;
-    border-radius: 10px;
+    border-radius: 25px;
     background-color: blue;
     color: white;
 }
@@ -44,6 +44,8 @@ button.delete-message-button {
 
 input[type=submit] {
     outline: none;
+    margin: 5px 5px;
+    padding: 5px 5px;
     border-radius: 25px;
     background-color: green;
     color: white;
