@@ -35,7 +35,9 @@ button {
 }
 
 button.delete-message-button {
+    display: flex;
     background-color: red;
+
 }
 
 input[type=submit] {
@@ -61,10 +63,6 @@ input[type=submit] {
     padding: 10px 25px;
     border-radius: 25px;
     background-color: white;
-}
-
-.delete-message-button {
-    display: flex;
 }
 
 /* comments */
