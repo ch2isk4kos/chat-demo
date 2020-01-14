@@ -4,7 +4,6 @@ class Message {
         this.content = messageObj.content
         this.creator = messageObj.creator
         this.comments = messageObj.comments
-        // this.deleteButtonEventListener()
     }
 
     renderMessage() {
@@ -54,9 +53,6 @@ class Message {
         .then(response => response.json())
         .then(comment => {
             console.log("comment:", comment)
-            // console.log("comment.content:", comment.content)
-            // console.log("comment.creator:", comment.creator)
-
             this.comments.push(comment)
 
             document.getElementById(`comments-container-${this.id}`).innerHTML += `
@@ -68,13 +64,6 @@ class Message {
         .catch(error => console.log(error))
     }
 
-    // deleteButtonEventListener() {
-    //     const deleteBtns = document.getElementsByClassName('delete-message-buttton')
-    //     for (let btn of deleteBtns) {
-    //         btn.addEventListener('click', this.destroyMessage())
-    //     }
-    // }
-    //
     destroyMessage(id) {
         console.log("deleteMessage(id)", id)
         return fetch('http://localhost:3000/api/v1/messages/' + id, {
@@ -91,8 +80,3 @@ class Message {
     }
 
 }
-
-// <button type="button" class="delete-message-${this.id}-button" onclick=${this.deleteMessage(this.id)}>Delete</buttton>
-// onclick=${this.deleteMessage(this.id)}
-
-// class="delete-message-${this.id}-button"

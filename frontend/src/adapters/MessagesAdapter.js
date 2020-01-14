@@ -29,7 +29,6 @@ class MessagesAdapter {
 
     destroyMessage(id) {
         return fetch('http://localhost:3000/api/v1/messages/' + id, {
-        // return fetch(`http://localhost:3000/api/v1/messages/${id}`, {
             method: 'DELETE'
         })
         .catch(error => console.log(error))
